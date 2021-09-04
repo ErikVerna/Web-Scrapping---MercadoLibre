@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 //Creamos una función, la cual va a ser llamada al final del codigo, y dentro de ella pondremos el parametro a buscar
 function search(prod){
 (async() => {
-    const browser = await puppeteer.launch({headless:true}); // asignar a "false" para ejecutarlo con chromium
+    const browser = await puppeteer.launch({headless:false}); // asignar a "false" para ejecutarlo con chromium
     const page = await browser.newPage();
     //Screenshot de la pagina de inicio de mercadolibre
     await page.goto("https://www.mercadolibre.com.ar")
@@ -14,9 +14,7 @@ function search(prod){
 
     await page.click(".nav-search-btn")
     await page.waitForSelector("li.ui-search-layout__item")
-    //Screenshot de la lista del producto buscado
-    await page.screenshot({ path: "mlProducts.jpg" })
-
+    
     const enlaces = await page.evaluate(() => {
         const elements = document.querySelectorAll(".ui-search-item__group--title a.ui-search-item__group__element")
         
@@ -58,4 +56,4 @@ function search(prod){
 })();
 }
 
-search("xbox one")
+search("playstation 5")
