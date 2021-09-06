@@ -34,7 +34,7 @@ function search(prod){
         for (let enlace of enlaces) {
             await page.goto(enlace)
             await page.waitForSelector(".ui-pdp-title")
-            
+
             const article = await page.evaluate(() => {
                 const tmp = {};
                 tmp.title = document.querySelector(".ui-pdp-title").innerText
