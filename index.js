@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 //Creamos una función, la cual va a ser llamada al final del codigo, y dentro de ella pondremos el parametro a buscar
 function search(prod){
 (async() => {
-    const browser = await puppeteer.launch({headless:false}); // asignar a "false" para ejecutarlo con chromium
+    const browser = await puppeteer.launch({headless: false}); // asignar a "false" para ejecutarlo con chromium
     const page = await browser.newPage();
     //Screenshot de la pagina de inicio de mercadolibre
     await page.goto("https://www.mercadolibre.com.ar")
@@ -42,6 +42,7 @@ function search(prod){
                     return tmp
                 
             });
+            article.link = enlace
             articles.push(article)
         }  
         //filtramos por nombre de producto desado
