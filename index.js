@@ -61,4 +61,4 @@ function search(prod){
 
 search("playstation 5");
 // Aqui ponemos lo que se quiere buscar
-// Here put what we want to search
+// Here we put what we want to search
